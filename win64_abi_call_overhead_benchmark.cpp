@@ -56,7 +56,7 @@ int main () {
     while (r1 < 100'000'000) {
         roll1 <Unrolls> (text, text);
     }
-    printf ("SPAN: %.2f G/s\n", Unrolls * r1 / double (GetTickCount64 () - t1) / 1000000.0);
+    printf ("std::span: %.2f G/s\n", Unrolls * r1 / double (GetTickCount64 () - t1) / 1000000.0);
 
     for (char c : text) c = std::rand () % 256;
 
@@ -64,7 +64,7 @@ int main () {
     while (r2 < 100'000'000) {
         roll2 <Unrolls> (text, 256, text, 256);
     }
-    printf ("SPAN: %.2f G/s\n", Unrolls * r2 / double (GetTickCount64 () - t2) / 1000000.0);
+    printf ("separated: %.2f G/s\n", Unrolls * r2 / double (GetTickCount64 () - t2) / 1000000.0);
 
     return 0;
 }
