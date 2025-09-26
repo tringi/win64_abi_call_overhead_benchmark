@@ -5,7 +5,7 @@
 
 Using modern C++ means leaning towards replacing the legacy of C with new C++ utilities.
 Pointer & size arguments with `std::string_view` or `std::span`, plain pointers with `std::optional` or `std::unique_ptr`, etc.
-On Windows, due to [ABI](https://learn.microsoft.com/en-us/cpp/build/x64-calling-convention?view=msvc-170),
+On Windows, due to the [ABI](https://learn.microsoft.com/en-us/cpp/build/x64-calling-convention?view=msvc-170),
 these utilities cannot be passed in registers, but must be copied through the stack instead.
 This incurs performance penalty.
 
@@ -32,7 +32,7 @@ Almost 4 times as many.
 ## A proposed solution
 
 Obviously the calling convention for system APIs can't be changed,
-but for the functions withing a project it absolutely can.
+but for the functions within a project it absolutely can.
 
-See the following proposal for further reasoning and references:  
+See following preliminary proposal for further reasoning and references:  
 https://github.com/tringi/papers/blob/main/cxx-x64-v2-calling-convention.md
